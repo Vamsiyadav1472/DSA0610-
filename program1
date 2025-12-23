@@ -1,12 +1,14 @@
-# Sample data
-weight <- c(60, 65, 70, 72, 75)
-height <- c(170, 175, 168, 180, 178)
+library(ggplot2)
 
-# Create scatter plot
-plot(weight, height,
-     main = "Scatter Plot of Weight vs Height",
-     xlab = "Weight (kg)",
-     ylab = "Height (cm)",
-     pch = 19,       # solid circle
+data <- data.frame(
+  Weight = c(60, 65, 70, 72, 75),
+  Height = c(170, 175, 168, 180, 178)
+)
 
-     col = "blue")   # color of points
+ggplot(data, aes(Weight, Height)) +
+  geom_point(color = "darkgreen", size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  ggtitle("Relationship Between Weight and Height") +
+  xlab("Weight (kg)") +
+  ylab("Height (cm)") +
+  theme_classic()
