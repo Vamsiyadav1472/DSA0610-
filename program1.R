@@ -8,4 +8,5 @@ plot(weight, height,
      xlab = "Weight (kg)",
      ylab = "Height (cm)",
      pch = 19,       # solid circle
+
      col = "blue")   # color of points
