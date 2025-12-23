@@ -1,11 +1,18 @@
-# Exam scores data
-class <- c(rep("A", 4), rep("B", 4))
-scores <- c(85, 90, 78, 92, 88, 76, 80, 84)
+library(ggplot2)
 
-# Create box plot
-boxplot(scores ~ class,
-        col = c("lightblue", "lightgreen"),
-        main = "Exam Scores by Class",
-        xlab = "Class",
-        ylab = "Scores",
-        border = "darkblue")
+# Create a data frame
+scores_data <- data.frame(
+  Class = c("A", "A", "A", "A", "B", "B", "B", "B"),
+  Scores = c(85, 90, 78, 92, 88, 76, 80, 84)
+)
+
+# Box plot
+ggplot(scores_data, aes(x = Class, y = Scores, fill = Class)) +
+  geom_boxplot() +
+  labs(
+    title = "Exam Scores by Class",
+    x = "Class",
+    y = "Scores"
+  ) +
+  theme_minimal()
+
