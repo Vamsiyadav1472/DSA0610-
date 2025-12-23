@@ -1,16 +1,17 @@
-# Load ggplot2
 library(ggplot2)
 
-# Create data frame
-group <- c(rep("X", 4), rep("Y", 4))
-score <- c(80, 85, 78, 92, 88, 76, 80, 84)
-data <- data.frame(Group = group, Score = score)
+# Create a data frame
+weights_data <- data.frame(
+  Weight = c(60, 65, 70, 75, 80, 85, 90, 95, 100)
+)
 
-# Create violin plot
-ggplot(data, aes(x = Group, y = Score, fill = Group)) +
-  geom_violin(trim = FALSE) +
-  geom_boxplot(width = 0.1, fill = "white") +
-  labs(title = "Violin Plot of Scores by Group",
-       x = "Group",
-       y = "Score") +
+# Density plot
+ggplot(weights_data, aes(x = Weight)) +
+  geom_density(fill = "lightblue", alpha = 0.7) +
+  labs(
+    title = "Density Plot of Weights",
+    x = "Weight (kg)",
+    y = "Density"
+  ) +
   theme_minimal()
+
