@@ -1,9 +1,20 @@
-# Market share data
-company <- c("A", "B", "C", "D")
-market_share <- c(20, 30, 25, 25)
+library(ggplot2)
 
-# Create pie chart
-pie(market_share,
-    labels = company,
-    col = rainbow(length(company)),
-    main = "Market Share by Company")
+# Create a data frame
+market_share_data <- data.frame(
+  Company = c("A", "B", "C", "D"),
+  Market_Share = c(20, 30, 25, 25)
+)
+
+# Pie chart
+ggplot(market_share_data, aes(x = "", y = Market_Share, fill = Company)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +
+  labs(
+    title = "Market Share by Company",
+    x = NULL,
+    y = NULL
+  ) +
+  theme_void() +
+  theme(legend.position = "right")
+
