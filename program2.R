@@ -1,12 +1,19 @@
-# Population data
-year <- c(2010, 2011, 2012, 2013, 2014)
-population <- c(1000, 1020, 1040, 1060, 1080)
+library(ggplot2)
 
-# Create line plot
-plot(year, population,
-     type = "o",           # 'o' for both points and lines
-     col = "darkgreen",    # line color
-     pch = 16,             # point style
-     xlab = "Year",
-     ylab = "Population (millions)",
-     main = "Population Growth Over Years")
+# Create a data frame
+year_population_data <- data.frame(
+  Year = 2010:2014,
+  Population = c(1000, 1020, 1040, 1060, 1080)
+)
+
+# Line plot
+ggplot(year_population_data, aes(x = Year, y = Population)) +
+  geom_line(color = "green", linewidth = 1) +
+  geom_point(color = "red", size = 3) +
+  labs(
+    title = "Year vs Population",
+    x = "Year",
+    y = "Population (millions)"
+  ) +
+  theme_minimal()
+
